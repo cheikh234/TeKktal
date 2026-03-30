@@ -7,76 +7,40 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-
-/*
-  SYSTÈME COULEUR — 3 rôles stricts
-  ──────────────────────────────────
-  FOND CLAIR   #FFF3B0  sections repos, hero, nav
-  FOND FONCÉ   #FFD000  sections alternées
-  ACCENT       #CC8800  boutons, tags, icônes, titres clés
-  TEXTE        #3D2600  sur fond clair
-  TEXTE INV    #FFFFFF  sur fond foncé #FFD000
-  MINT         #00C9A7  checkmarks, badges secondaires
-*/
 :root{
-  --bg:     #FFF3B0;   /* fond clair — dominant */
-  --bg-alt: #FFD000;   /* jaune vif — accents, badges */
-  --accent: #CC8800;   /* accent unique */
-  --dark:   #1C1C1C;   /* texte sur bg clair */
+  --bg:     #FFF3B0;
+  --bg-alt: #FFD000;
+  --accent: #CC8800;
+  --dark:   #1C1C1C;
   --white:  #FFFFFF;
   --mint:   #00C9A7;
   --border: rgba(204,136,0,0.18);
   --rl:24px;
 }
-
 html{scroll-behavior:smooth}
 body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--dark);overflow-x:hidden;line-height:1.6}
 
-/* ── NAV — fond clair, bordure accent subtile ── */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:200;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:1rem 3rem;
-  background:rgba(255,243,176,0.95);
-  backdrop-filter:blur(20px);
-  border-bottom:1px solid var(--border);
-}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1rem 3rem;background:rgba(255,243,176,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
 .nav-logo{font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.5rem;letter-spacing:.06em;color:var(--accent);text-decoration:none}
 .nav-logo span{color:var(--dark)}
 .nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
 .nav-links a{font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.09em;color:rgba(28,28,28,.5);text-decoration:none;text-transform:uppercase;transition:color .2s}
 .nav-links a:hover{color:var(--accent)}
-.nav-cta{
-  background:var(--accent)!important;color:var(--white)!important;
-  padding:.55rem 1.6rem;border-radius:100px;
-  transition:opacity .2s,transform .2s;
-}
+.nav-cta{background:var(--accent)!important;color:var(--white)!important;padding:.55rem 1.6rem;border-radius:100px;transition:opacity .2s,transform .2s}
 .nav-cta:hover{opacity:.88;transform:translateY(-1px)}
 
-/* ── HERO — fond clair + grands cercles dorés ── */
-.hero{
-  position:relative;min-height:100vh;
-  display:grid;grid-template-columns:1fr 1fr;align-items:center;
-  padding:8rem 5rem 5rem;gap:4rem;
-  background:var(--bg);
-  overflow:hidden;
-}
+/* HERO */
+.hero{position:relative;min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:8rem 5rem 5rem;gap:4rem;background:var(--bg);overflow:hidden}
 .deco{position:absolute;border-radius:50%;pointer-events:none}
 .deco-1{width:700px;height:700px;background:rgba(255,208,0,.18);top:-250px;right:-160px}
 .deco-2{width:400px;height:400px;background:rgba(255,208,0,.1);bottom:-140px;left:-80px}
 .deco-3{width:200px;height:200px;background:rgba(255,208,0,.12);top:28%;left:40%}
 .deco-4{width:100px;height:100px;background:rgba(255,208,0,.15);top:14%;right:36%}
-
 .hero-left{position:relative;z-index:2}
 .hero-right{position:relative;z-index:2;display:flex;align-items:center;justify-content:center}
 
-.badge{
-  display:inline-flex;align-items:center;gap:8px;
-  background:rgba(204,136,0,.1);border:1.5px solid rgba(204,136,0,.25);
-  border-radius:100px;padding:.4rem 1.1rem;
-  font-family:'Montserrat',sans-serif;font-size:.63rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;
-  color:var(--accent);margin-bottom:1.8rem;animation:fadeUp .5s ease both;
-}
+.badge{display:inline-flex;align-items:center;gap:8px;background:rgba(204,136,0,.1);border:1.5px solid rgba(204,136,0,.25);border-radius:100px;padding:.4rem 1.1rem;font-family:'Montserrat',sans-serif;font-size:.63rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:1.8rem;animation:fadeUp .5s ease both}
 .badge-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:blink 2s infinite}
 @keyframes blink{0%,100%{box-shadow:0 0 0 0 rgba(204,136,0,.5)}50%{box-shadow:0 0 0 7px rgba(204,136,0,0)}}
 
@@ -86,37 +50,14 @@ h1 .line2{display:block;font-weight:400;font-size:.5em;color:rgba(28,28,28,.5);l
 .hero-sub{margin-top:1.6rem;font-size:1rem;font-weight:300;color:rgba(28,28,28,.6);max-width:40ch;line-height:1.85;animation:fadeUp .6s .16s ease both}
 .hero-actions{display:flex;align-items:center;gap:1rem;margin-top:2.2rem;flex-wrap:wrap;animation:fadeUp .6s .24s ease both}
 
-/* ── BOUTONS ── */
-.btn-primary{
-  display:inline-flex;align-items:center;gap:.6rem;
-  background:var(--accent);color:var(--white);
-  font-family:'Montserrat',sans-serif;font-size:.78rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;
-  padding:.9rem 2.1rem;border-radius:100px;text-decoration:none;border:none;cursor:pointer;
-  transition:opacity .2s,transform .2s;
-  box-shadow:0 6px 24px rgba(204,136,0,.3);
-}
+.btn-primary{display:inline-flex;align-items:center;gap:.6rem;background:var(--accent);color:var(--white);font-family:'Montserrat',sans-serif;font-size:.78rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;padding:.9rem 2.1rem;border-radius:100px;text-decoration:none;border:none;cursor:pointer;transition:opacity .2s,transform .2s;box-shadow:0 6px 24px rgba(204,136,0,.3)}
 .btn-primary:hover{opacity:.88;transform:translateY(-2px)}
-.btn-secondary{
-  display:inline-flex;align-items:center;gap:.55rem;
-  background:transparent;color:var(--dark);
-  font-family:'Outfit',sans-serif;font-size:.9rem;font-weight:500;
-  padding:.8rem 1.7rem;border-radius:100px;text-decoration:none;
-  border:1.5px solid var(--border);cursor:pointer;
-  transition:border-color .2s,color .2s;
-}
+.btn-secondary{display:inline-flex;align-items:center;gap:.55rem;background:transparent;color:var(--dark);font-family:'Outfit',sans-serif;font-size:.9rem;font-weight:500;padding:.8rem 1.7rem;border-radius:100px;text-decoration:none;border:1.5px solid var(--border);cursor:pointer;transition:border-color .2s,color .2s}
 .btn-secondary:hover{border-color:var(--accent);color:var(--accent)}
-.btn-secondary svg{width:14px;height:14px}
 
-/* ── PHONE — fond blanc, écran clair ── */
+/* PHONE */
 .phone-wrap{position:relative}
-.phone-frame{
-  width:230px;height:470px;
-  background:var(--white);border-radius:42px;
-  border:2px solid rgba(204,136,0,.2);
-  padding:13px;
-  box-shadow:0 40px 80px rgba(28,28,28,.12);
-  position:relative;animation:fadeUp .7s .32s ease both;
-}
+.phone-frame{width:230px;height:470px;background:var(--white);border-radius:42px;border:2px solid rgba(204,136,0,.2);padding:13px;box-shadow:0 40px 80px rgba(28,28,28,.12);position:relative;animation:fadeUp .7s .32s ease both}
 .phone-notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:72px;height:24px;background:var(--white);border-radius:0 0 16px 16px;z-index:10}
 .p-topbar{position:absolute;top:0;left:0;right:0;z-index:5;padding:28px 14px 10px;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(180deg,rgba(255,249,224,.98) 60%,rgba(255,249,224,0))}
 .p-logo{font-family:'Montserrat',sans-serif;font-weight:900;font-size:13px;letter-spacing:.06em;color:var(--accent)}
@@ -136,27 +77,15 @@ h1 .line2{display:block;font-weight:400;font-size:.5em;color:rgba(28,28,28,.5);l
 .pb{height:3px;flex:1;border-radius:2px;background:rgba(204,136,0,.12)}
 .pb.on{background:var(--bg-alt)}
 
-/* float badges — fond clair + bordure accent */
-.float-badge{
-  position:absolute;background:var(--white);
-  border:1.5px solid var(--border);border-radius:14px;padding:9px 13px;
-  box-shadow:0 6px 20px rgba(28,28,28,.08);
-  font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;color:rgba(28,28,28,.6);white-space:nowrap;
-}
+.float-badge{position:absolute;background:var(--white);border:1.5px solid var(--border);border-radius:14px;padding:9px 13px;box-shadow:0 6px 20px rgba(28,28,28,.08);font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;color:rgba(28,28,28,.6);white-space:nowrap}
 .float-badge .n{font-size:1.15rem;font-weight:900;color:var(--accent);display:block;line-height:1.2}
 .fb1{top:8%;left:-108px;animation:float 4s ease-in-out infinite}
 .fb2{top:46%;right:-100px;animation:float 4s ease-in-out infinite .8s}
 .fb3{bottom:16%;left:-88px;animation:float 4s ease-in-out infinite 1.5s}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
 
-/* ── STATS — fond foncé #FFD000, texte foncé ── */
-.stats{
-  background:linear-gradient(135deg,#FFE566 0%,#FFD000 45%,#FFC200 100%);
-  border-top:1px solid rgba(204,136,0,.2);
-  border-bottom:1px solid rgba(204,136,0,.2);
-  display:flex;align-items:center;justify-content:space-around;flex-wrap:wrap;gap:1.5rem;padding:2.2rem 4rem;
-  position:relative;overflow:hidden;
-}
+/* STATS */
+.stats{background:linear-gradient(135deg,#FFE566 0%,#FFD000 45%,#FFC200 100%);border-top:1px solid rgba(204,136,0,.2);border-bottom:1px solid rgba(204,136,0,.2);display:flex;align-items:center;justify-content:space-around;flex-wrap:wrap;gap:1.5rem;padding:2.2rem 4rem;position:relative;overflow:hidden}
 .stats-deco{position:absolute;border-radius:50%;pointer-events:none}
 .stats-deco-1{width:400px;height:400px;background:rgba(255,255,255,.1);top:-200px;right:-100px}
 .stats-deco-2{width:200px;height:200px;background:rgba(255,255,255,.08);bottom:-100px;left:5%}
@@ -165,23 +94,15 @@ h1 .line2{display:block;font-weight:400;font-size:.5em;color:rgba(28,28,28,.5);l
 .stat-l{font-family:'Montserrat',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(28,28,28,.55);margin-top:4px}
 .stat-sep{width:1px;height:48px;background:rgba(28,28,28,.15)}
 
-/* ── SECTIONS — alternance simple et lisible ── */
+/* SECTIONS */
 section{padding:6rem 5rem;position:relative;overflow:hidden}
-
-/* Section claire = fond bg (#FFF3B0) */
 .s-light{background:var(--bg);border-top:1px solid var(--border)}
-
-/* Section foncée = fond bg-alt (#FFD000) */
 .s-dark{background:linear-gradient(135deg,#FFE566 0%,#FFD000 45%,#FFC200 100%);border-top:1px solid rgba(204,136,0,.15)}
-
-/* cercles déco pour sections foncées */
 .sd{position:absolute;border-radius:50%;pointer-events:none;background:rgba(255,255,255,.12)}
 .sd-xl{width:580px;height:580px}
 .sd-lg{width:360px;height:360px}
 .sd-md{width:200px;height:200px}
 .sd-sm{width:110px;height:110px}
-
-/* cercles déco pour sections claires */
 .sd-soft{position:absolute;border-radius:50%;pointer-events:none;background:rgba(255,208,0,.15)}
 
 .tag{display:inline-block;font-family:'Montserrat',sans-serif;font-size:.63rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:.85rem}
@@ -189,16 +110,11 @@ section{padding:6rem 5rem;position:relative;overflow:hidden}
 
 h2.sec{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(1.9rem,3.5vw,2.9rem);color:var(--dark);line-height:1.1;letter-spacing:-.01em;max-width:20ch}
 h2.sec .hl{color:var(--accent);font-style:italic}
-.s-dark h2.sec{color:var(--dark)}
 .s-dark h2.sec .hl{color:var(--white)}
 
-/* ── STEPS — sur fond clair, cards blanches ── */
+/* STEPS */
 .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.25rem;margin-top:3rem}
-.step{
-  background:var(--white);border:1px solid var(--border);
-  border-radius:var(--rl);padding:1.8rem;position:relative;overflow:hidden;
-  transition:transform .25s,box-shadow .25s;
-}
+.step{background:var(--white);border:1px solid var(--border);border-radius:var(--rl);padding:1.8rem;position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s}
 .step::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .35s ease;border-radius:var(--rl) var(--rl) 0 0}
 .step:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(28,28,28,.09)}
 .step:hover::after{transform:scaleX(1)}
@@ -208,25 +124,14 @@ h2.sec .hl{color:var(--accent);font-style:italic}
 .step h3{font-family:'Montserrat',sans-serif;font-size:.95rem;font-weight:800;color:var(--dark);margin-bottom:.5rem}
 .step p{font-size:.87rem;color:rgba(28,28,28,.55);line-height:1.75}
 
-/* ── SPLIT ── */
+/* SPLIT */
 .split{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;max-width:1100px;margin:0 auto}
-
-/* vis-card sur fond clair → blanc; sur fond foncé → blanc aussi */
-.vis-card{
-  background:var(--white);border:1px solid var(--border);
-  border-radius:var(--rl);overflow:hidden;aspect-ratio:4/3;
-  display:flex;align-items:center;justify-content:center;padding:1.5rem;position:relative;
-  box-shadow:0 4px 24px rgba(28,28,28,.07);
-}
+.vis-card{background:var(--white);border:1px solid var(--border);border-radius:var(--rl);overflow:hidden;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;padding:1.5rem;position:relative;box-shadow:0 4px 24px rgba(28,28,28,.07)}
 .vis-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent)}
 
-/* feed */
+/* FEED */
 .feed-list{width:100%;display:flex;flex-direction:column;gap:10px}
-.feed-row{
-  display:flex;align-items:center;gap:10px;
-  background:var(--bg);border:1px solid var(--border);
-  border-radius:12px;padding:10px 12px;transition:border-color .2s;
-}
+.feed-row{display:flex;align-items:center;gap:10px;background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:10px 12px;transition:border-color .2s}
 .feed-row:hover{border-color:var(--accent)}
 .av{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:800;flex-shrink:0}
 .feed-info{flex:1}
@@ -234,13 +139,13 @@ h2.sec .hl{color:var(--accent);font-style:italic}
 .feed-m{font-size:8px;color:rgba(28,28,28,.5)}
 .badge-off{font-family:'Montserrat',sans-serif;font-size:6px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;background:var(--bg-alt);color:var(--dark);padding:3px 9px;border-radius:100px;white-space:nowrap}
 
-/* checklist */
+/* CHECKLIST */
 .checklist{list-style:none;margin-top:1.8rem;display:flex;flex-direction:column;gap:.95rem}
 .checklist li{display:flex;align-items:flex-start;gap:.75rem;font-size:.9rem;color:rgba(28,28,28,.6);line-height:1.7}
 .check-wrap{width:22px;height:22px;border-radius:50%;background:rgba(0,201,167,.1);border:1px solid rgba(0,201,167,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
 .check-wrap svg{width:11px;height:11px;stroke:var(--mint);stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
 
-/* ent-vis */
+/* ENT VIS */
 .ent-vis{display:flex;flex-direction:column;gap:12px;width:100%}
 .ent-hero-card{background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:16px;text-align:center}
 .ent-badge-lbl{font-family:'Montserrat',sans-serif;font-size:7px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:5px}
@@ -251,13 +156,9 @@ h2.sec .hl{color:var(--accent);font-style:italic}
 .ent-stat-n{font-family:'Montserrat',sans-serif;font-size:1.3rem;font-weight:900;color:var(--accent)}
 .ent-stat-l{font-size:7.5px;color:rgba(28,28,28,.5);margin-top:2px;letter-spacing:.04em}
 
-/* ── TESTIMONIALS — sur fond foncé → cards blanches ── */
+/* TESTIMONIALS */
 .testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;margin-top:3rem}
-.testi{
-  background:var(--white);border:1px solid rgba(28,28,28,.08);
-  border-radius:var(--rl);padding:2rem;
-  transition:transform .2s,box-shadow .2s;
-}
+.testi{background:var(--white);border:1px solid rgba(28,28,28,.08);border-radius:var(--rl);padding:2rem;transition:transform .2s,box-shadow .2s}
 .testi:hover{transform:translateY(-4px);box-shadow:0 14px 36px rgba(28,28,28,.1)}
 .quote-icon{width:28px;height:28px;margin-bottom:1rem;opacity:.2;fill:var(--accent)}
 .testi-txt{font-size:.88rem;line-height:1.8;color:rgba(28,28,28,.58);margin-bottom:1.5rem}
@@ -266,7 +167,7 @@ h2.sec .hl{color:var(--accent);font-style:italic}
 .testi-name{font-family:'Montserrat',sans-serif;font-size:.8rem;font-weight:800;color:var(--dark)}
 .testi-role{font-size:.7rem;color:rgba(28,28,28,.5);margin-top:1px}
 
-/* ── FAQ — fond clair ── */
+/* FAQ */
 .faq-section{background:var(--bg);border-top:1px solid var(--border);padding:6rem 5rem;position:relative;overflow:hidden}
 .faq-inner{max-width:860px;margin:0 auto;position:relative;z-index:2}
 .faq-header{margin-bottom:3rem}
@@ -282,7 +183,7 @@ h2.sec .hl{color:var(--accent);font-style:italic}
 .faq-icon svg{width:12px;height:12px;stroke:var(--accent);fill:none;stroke-width:2.5;stroke-linecap:round;transition:stroke .25s}
 .faq-item.open .faq-icon svg{stroke:var(--white)}
 .faq-body{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.25,.8,.25,1),padding .4s;padding:0 1.75rem}
-.faq-item.open .faq-body{max-height:220px;padding:0 1.75rem 1.5rem}
+.faq-item.open .faq-body{max-height:300px;padding:0 1.75rem 1.5rem}
 .faq-body-inner{font-size:.87rem;color:rgba(28,28,28,.6);line-height:1.85;border-top:1px solid var(--border);padding-top:1rem}
 .faq-badge{display:inline-flex;align-items:center;gap:4px;background:var(--accent);color:var(--white);font-family:'Montserrat',sans-serif;font-size:.6rem;font-weight:800;padding:2px 8px;border-radius:100px;vertical-align:middle;margin:0 2px}
 .faq-pill{display:inline-block;background:rgba(204,136,0,.1);border:1px solid rgba(204,136,0,.2);color:var(--accent);font-family:'Montserrat',sans-serif;font-size:.68rem;font-weight:700;padding:2px 10px;border-radius:100px;margin-right:4px}
@@ -291,46 +192,25 @@ h2.sec .hl{color:var(--accent);font-style:italic}
 .chip-dot.green{background:var(--mint)}
 .chip-dot.grey{background:rgba(28,28,28,.2)}
 
-/* ── CTA — fond foncé + cercles blancs ── */
-.cta-section{
-  padding:9rem 2rem;text-align:center;position:relative;
-  background:linear-gradient(135deg,#FFE566 0%,#FFD000 45%,#FFC200 100%);
-  overflow:hidden;
-}
+/* CTA */
+.cta-section{padding:9rem 2rem;text-align:center;position:relative;background:linear-gradient(135deg,#FFE566 0%,#FFD000 45%,#FFC200 100%);overflow:hidden}
 .cta-section h2{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(2.5rem,7vw,6rem);color:var(--dark);line-height:1;max-width:14ch;margin:0 auto;letter-spacing:-.02em}
 .cta-section h2 span{display:block;font-style:italic;color:var(--white)}
 .cta-section p{font-size:1rem;color:rgba(28,28,28,.58);max-width:42ch;margin:1.5rem auto 2.5rem;line-height:1.8}
 .cta-section .tag{color:rgba(28,28,28,.55)}
-
-.btn-cta{
-  display:inline-flex;align-items:center;gap:.6rem;
-  background:var(--dark);color:var(--white);
-  font-family:'Montserrat',sans-serif;font-size:.85rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;
-  padding:1rem 2.6rem;border-radius:100px;text-decoration:none;
-  box-shadow:0 8px 28px rgba(28,28,28,.25);
-  transition:opacity .2s,transform .2s;
-}
+.btn-cta{display:inline-flex;align-items:center;gap:.6rem;background:var(--dark);color:var(--white);font-family:'Montserrat',sans-serif;font-size:.85rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;padding:1rem 2.6rem;border-radius:100px;text-decoration:none;box-shadow:0 8px 28px rgba(28,28,28,.25);transition:opacity .2s,transform .2s}
 .btn-cta:hover{opacity:.85;transform:translateY(-2px)}
 
 .store-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2rem}
-.store-btn{
-  display:flex;align-items:center;gap:.8rem;
-  background:rgba(28,28,28,.08);border:1px solid rgba(28,28,28,.15);color:var(--dark);
-  border-radius:14px;padding:.9rem 1.6rem;text-decoration:none;cursor:pointer;
-  transition:background .2s,transform .2s;
-}
+.store-btn{display:flex;align-items:center;gap:.8rem;background:rgba(28,28,28,.08);border:1px solid rgba(28,28,28,.15);color:var(--dark);border-radius:14px;padding:.9rem 1.6rem;text-decoration:none;cursor:pointer;transition:background .2s,transform .2s}
 .store-btn:hover{background:rgba(28,28,28,.14);transform:translateY(-2px)}
 .store-btn svg{width:24px;height:24px;flex-shrink:0}
 .store-info{text-align:left}
 .store-sub{font-size:.6rem;text-transform:uppercase;letter-spacing:.07em;display:block;color:rgba(28,28,28,.45);font-family:'Montserrat',sans-serif;font-weight:700}
 .store-name{font-family:'Montserrat',sans-serif;font-size:.9rem;font-weight:900;color:var(--dark);display:block}
 
-/* ── FOOTER — fond foncé ── */
-footer{
-  background:var(--dark);
-  padding:2rem 5rem;
-  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;
-}
+/* FOOTER */
+footer{background:var(--dark);padding:2rem 5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
 .footer-logo{font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.3rem;text-decoration:none;color:var(--bg-alt);letter-spacing:.06em}
 .footer-links{display:flex;gap:2rem;list-style:none}
 .footer-links a{font-family:'Montserrat',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,243,176,.5);text-decoration:none;transition:color .2s}
@@ -372,7 +252,7 @@ footer{
   </ul>
 </nav>
 
-<!-- HERO — fond clair -->
+<!-- HERO -->
 <section class="hero">
   <div class="deco deco-1"></div>
   <div class="deco deco-2"></div>
@@ -389,14 +269,14 @@ footer{
       </a>
       <a href="#comment" class="btn-secondary">
         Comment ça marche
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
     </div>
   </div>
   <div class="hero-right">
     <div class="phone-wrap">
       <div class="float-badge fb1"><span class="n">248</span>Chemins partagés</div>
-      <div class="float-badge fb2"><span class="n">&lt;3 min</span>Création rapide</div>
+      <div class="float-badge fb2"><span class="n">&lt; 3 min</span>Création rapide</div>
       <div class="float-badge fb3"><span class="n">4.9 ★</span>Note utilisateurs</div>
       <div class="phone-frame">
         <div class="phone-notch"></div>
@@ -431,20 +311,20 @@ footer{
   </div>
 </section>
 
-<!-- STATS — fond foncé #FFD000 -->
+<!-- STATS -->
 <div class="stats">
   <div class="stats-deco stats-deco-1"></div>
   <div class="stats-deco stats-deco-2"></div>
-  <div class="stat-item"><div class="stat-n">1 000</div><div class="stat-l">Étudiants cibles</div></div>
+  <div class="stat-item"><div class="stat-n">100 +</div><div class="stat-l">Étudiants guidés</div></div>
   <div class="stat-sep"></div>
-  <div class="stat-item"><div class="stat-n">&lt; 3 min</div><div class="stat-l">Pour créer un chemin</div></div>
+  <div class="stat-item"><div class="stat-n">&lt; 3 min</div><div class="stat-l">Création d'un chemin</div></div>
   <div class="stat-sep"></div>
-  <div class="stat-item"><div class="stat-n">10 +</div><div class="stat-l">Entreprises pilotes</div></div>
+  <div class="stat-item"><div class="stat-n">0</div><div class="stat-l">Appel nécessaire</div></div>
   <div class="stat-sep"></div>
-  <div class="stat-item"><div class="stat-n">0 F</div><div class="stat-l">Pour commencer</div></div>
+  <div class="stat-item"><div class="stat-n">1 lien</div><div class="stat-l">Partageable partout</div></div>
 </div>
 
-<!-- HOW IT WORKS — fond clair -->
+<!-- HOW IT WORKS -->
 <section class="s-light" id="comment">
   <div class="sd-soft" style="width:500px;height:500px;top:-200px;right:-150px"></div>
   <div style="max-width:1100px;margin:0 auto;position:relative;z-index:2">
@@ -467,19 +347,19 @@ footer{
         <div class="step-num">03</div>
         <div class="step-icon"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></div>
         <h3>Partage en 1 clic</h3>
-        <p>Un lien unique direct sur WhatsApp. L'app non installée ? Une page web s'ouvre automatiquement.</p>
+        <p>Un lien unique direct sur WhatsApp. L'app non installée ? Une page web s'ouvre automatiquement. Zéro friction.</p>
       </div>
       <div class="step reveal" style="transition-delay:.3s">
         <div class="step-num">04</div>
         <div class="step-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div>
         <h3>Suis étape par étape</h3>
-        <p>Mode navigation plein écran. Vidéo + texte à chaque étape. Tu arrives à destination, garanti.</p>
+        <p>Mode navigation plein écran. Vidéo + texte à chaque étape. Tu avances à ton rythme, tu arrives, garanti.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- COMMUNITY FEED — fond foncé -->
+<!-- FEED -->
 <section class="s-dark" id="fonctions">
   <div class="sd sd-xl" style="top:-260px;right:-180px"></div>
   <div class="sd sd-sm" style="bottom:40px;left:6%"></div>
@@ -531,7 +411,7 @@ footer{
   </div>
 </section>
 
-<!-- ENTREPRISES — fond clair -->
+<!-- ENTREPRISES -->
 <section class="s-light" id="entreprises">
   <div class="sd-soft" style="width:420px;height:420px;bottom:-160px;left:-100px"></div>
   <div class="split" style="direction:rtl;position:relative;z-index:2">
@@ -566,7 +446,7 @@ footer{
   </div>
 </section>
 
-<!-- TESTIMONIALS — fond foncé -->
+<!-- TESTIMONIALS -->
 <section class="s-dark">
   <div class="sd sd-xl" style="bottom:-240px;left:-160px"></div>
   <div class="sd sd-md" style="top:30px;right:6%"></div>
@@ -602,7 +482,7 @@ footer{
   </div>
 </section>
 
-<!-- FAQ — fond clair -->
+<!-- FAQ -->
 <div class="faq-section" id="faq">
   <div class="sd-soft" style="width:500px;height:500px;top:-200px;right:-150px"></div>
   <div class="faq-inner">
@@ -611,46 +491,62 @@ footer{
       <h2 class="sec reveal">Tout ce que tu veux <span class="hl">savoir.</span></h2>
     </div>
     <div class="faq-grid reveal">
+
       <div class="faq-item open">
         <div class="faq-q" onclick="toggleFaq(this)">
           <span class="faq-q-txt">C'est quoi exactement Tektal ?</span>
           <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
         </div>
-        <div class="faq-body"><div class="faq-body-inner">Tektal est une application mobile qui permet de <strong style="color:var(--dark)">créer, partager et suivre des chemins visuels en vidéo</strong>. Tu filmes ton trajet, tu le découpes en étapes, et tu partages un lien. La personne n'a plus qu'à suivre étape par étape — comme TikTok, mais pour s'orienter.</div></div>
+        <div class="faq-body"><div class="faq-body-inner">
+          Tektal est une application mobile qui permet de <strong style="color:var(--dark)">créer, partager et suivre des chemins visuels en vidéo</strong>. Tu filmes ton trajet, tu le découpes en étapes, et tu partages un lien. La personne n'a plus qu'à suivre étape par étape — comme TikTok, mais pour s'orienter.
+        </div></div>
       </div>
+
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
           <span class="faq-q-txt">Combien de temps faut-il pour créer un chemin ?</span>
           <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
         </div>
-        <div class="faq-body"><div class="faq-body-inner"><span class="faq-pill">⚡ Moins de 3 min</span> en moyenne. Tu filmes (max 45 secondes), tu découpes en étapes, tu ajoutes un court texte pour chacune, et tu publies.</div></div>
+        <div class="faq-body"><div class="faq-body-inner">
+          <span class="faq-pill">⚡ Moins de 3 min</span> en moyenne. Tu filmes (max 45 secondes), tu découpes en étapes, tu ajoutes un court texte pour chacune, et tu publies. Le lien WhatsApp est prêt à envoyer en quelques secondes.
+        </div></div>
       </div>
+
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
           <span class="faq-q-txt">Qu'est-ce qu'un "chemin officiel" ?</span>
           <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
         </div>
-        <div class="faq-body"><div class="faq-body-inner">Un chemin officiel est créé ou validé par un <strong style="color:var(--dark)">établissement partenaire</strong>. Il porte un badge <span class="faq-badge">✓ Officiel</span> dans le feed, garantissant un trajet précis et vérifié.</div></div>
+        <div class="faq-body"><div class="faq-body-inner">
+          Un chemin officiel est créé ou validé par un <strong style="color:var(--dark)">établissement partenaire</strong> (école, entreprise, campus). Il porte un badge <span class="faq-badge">✓ Officiel</span> dans le feed et est mis en avant. Cela garantit que le trajet est précis, à jour, et vérifié par l'institution.
+        </div></div>
       </div>
+
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
           <span class="faq-q-txt">Tektal fonctionne sans connexion internet ?</span>
           <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
         </div>
-        <div class="faq-body"><div class="faq-body-inner">Tu peux enregistrer des chemins en <strong style="color:var(--dark)">favoris pour y accéder hors connexion</strong>. La navigation fonctionne avec les vidéos mises en cache.</div></div>
+        <div class="faq-body"><div class="faq-body-inner">
+          Tu peux enregistrer des chemins en <strong style="color:var(--dark)">favoris pour y accéder hors connexion</strong>. La navigation fonctionne alors avec les vidéos mises en cache. Pour créer ou consulter de nouveaux chemins, une connexion est nécessaire. La fonctionnalité offline avancée est prévue dans une version future.
+        </div></div>
       </div>
+
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
           <span class="faq-q-txt">Tektal est disponible sur iOS et Android ?</span>
           <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
         </div>
-        <div class="faq-body"><div class="faq-body-inner">En phase MVP, Tektal est disponible en priorité sur <span class="platform-chip"><span class="chip-dot green"></span>Android — disponible</span><span class="platform-chip"><span class="chip-dot grey"></span>iOS — en développement</span><br><br>Les liens publics fonctionnent sur tous les navigateurs, iPhone inclus.</div></div>
+        <div class="faq-body"><div class="faq-body-inner">
+          En phase MVP, Tektal est disponible en priorité sur <span class="platform-chip"><span class="chip-dot green"></span>Android — disponible</span><span class="platform-chip"><span class="chip-dot grey"></span>iOS — en développement</span><br><br>La version iOS sera disponible dans les prochains mois. En attendant, les liens publics fonctionnent sur tous les navigateurs, iPhone inclus.
+        </div></div>
       </div>
+
     </div>
   </div>
 </div>
 
-<!-- CTA — fond foncé + cercles -->
+<!-- CTA -->
 <section class="cta-section">
   <div class="sd sd-xl" style="top:-280px;right:-180px"></div>
   <div class="sd sd-lg" style="bottom:-180px;left:-120px"></div>
@@ -672,7 +568,7 @@ footer{
           <path d="M3.18.24A2 2 0 0 0 1 2.32v19.36c0 .44.15.85.42 1.17l.13.11L14.41 12 3.18.24z" fill="rgba(28,28,28,.25)"/>
           <path d="M14.92 12l2.98-2.98L5.25.45A2 2 0 0 0 4 .09L14.92 12z" fill="rgba(28,28,28,.5)"/>
         </svg>
-        <div class="store-info"><span class="store-sub">Disponible sur</span><span class="store-name">Google Play</span></div>
+        <div class="store-info"><span class="store-sub">En cours</span><span class="store-name">Google Play</span></div>
       </a>
       <a href="#" class="store-btn">
         <svg viewBox="0 0 24 24" fill="rgba(28,28,28,.55)"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
@@ -686,7 +582,7 @@ footer{
   </div>
 </section>
 
-<!-- FOOTER — fond très foncé -->
+<!-- FOOTER -->
 <footer>
   <a href="#" class="footer-logo">TEKTAL</a>
   <ul class="footer-links">
@@ -695,7 +591,7 @@ footer{
     <li><a href="#">Contact</a></li>
     <li><a href="#">Admin</a></li>
   </ul>
-  <span class="footer-copy">© 2025 Tektal · Dakar, Sénégal</span>
+  <span class="footer-copy">© 2025 Tektal · Dakar, Sénégal 🇸🇳</span>
 </footer>
 
 <script>
